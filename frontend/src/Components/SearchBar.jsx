@@ -13,7 +13,7 @@ const SearchBar = () => {
     const handleSubmit = async () => {
         if (categories.includes(search.toLowerCase().trim())) {
             try {
-                const response = await fetch("http://localhost:8080/api/v1/keyword", {
+                const response = await fetch("https://buzzword-api.onrender.com/api/v1/keyword", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

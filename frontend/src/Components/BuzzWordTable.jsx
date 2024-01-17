@@ -10,7 +10,7 @@ const buzzWordTable = () => {
 
     const getBuzzWords = async () => {
         try {
-            const response = await fetch("http://localhost:8080/api/v1/keyword", {
+            const response = await fetch("https://buzzword-api.onrender.com/api/v1/keyword", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
