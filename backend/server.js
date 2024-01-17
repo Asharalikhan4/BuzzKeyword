@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to the Keyword Tracker API." });
+});
 app.use("/api/v1", keywordRoutes);
 
 app.listen(port, () => {
