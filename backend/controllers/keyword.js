@@ -7,11 +7,11 @@ exports.setKeywordAndCount = async (req, res) => {
         if (existingKeyword) {
             existingKeyword.count++;
             await existingKeyword.save();
-            res.json({ message: 'Keyword count updated successfully.' });
+            res.status(200).json({ message: 'Keyword count updated successfully.' });
         } else {
             const newKeyword = new keyword({ word });
             await newKeyword.save();
-            res.json({ message: 'New keyword added successfully.' });
+            res.status(200).json({ message: 'New keyword added successfully.' });
         }
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
@@ -23,7 +23,7 @@ exports.getKeywordAndCount = async (req, res) => {
         const thirtyDaysAgo = new Date();
         thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
         const keywords = await keyword.find({ createdAt: { $gte: thirtyDaysAgo } }).sort({ count: -1 });
-        res.json({ keywords });
+        res.status(200).json({ keywords });
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
