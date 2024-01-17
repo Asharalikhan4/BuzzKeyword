@@ -8,7 +8,7 @@ const keyword = require('./models/keyword');
 const keywordRoutes = require('./routes/keyword');
 
 const app = express();
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 8080;
 
 // Middleware
 app.use(express.json());
@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api/v1", keywordRoutes);
 
-app.listen(port, () => {
+app.listen(8080, () => {
     connectDB();
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on port 8080`);
 });
